@@ -1,4 +1,6 @@
 # Jiffies-Project
 includes makefile, insrem.sh, jiffies, hello and seconds file
 
-run all 3 files with ./insrem.sh
+run all 2 files with ./insrem.sh
+contains cat /proc/jiffies and
+cat/proc/seconds
