@@ -6,3 +6,7 @@ contains cat /proc/jiffies and
 cat/proc/seconds
 
 change makefile to run the other files
+
+cat /proc/jiffies
+cat /proc/seconds 
+outputs in the screenshot!!!!
