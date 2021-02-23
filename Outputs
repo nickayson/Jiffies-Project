@@ -1,0 +1,2 @@
+cat /proc/jiffies
+cat /proc/seconds
