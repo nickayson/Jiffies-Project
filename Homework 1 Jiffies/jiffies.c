@@ -1,3 +1,4 @@
+//must change the makefile to jiffies.o
 #include <linux/init.h>
 #include <linux/module.h>
 #include <linux/kernel.h>
@@ -59,3 +60,20 @@ module_exit( proc_exit );
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("jiffies Module");
 MODULE_AUTHOR("SGG");
+
+//output of jiffies with ./insrem.sh
+// jiffies is 4294903840
+// seconds is 17179615
+// [   46.406149] hello: module verification failed: signature and/or required key missing - tainting kernel
+// [   46.406827] /proc/hello created
+// [   46.406828] GOLDEN_RATIO_PRIME is: 11400862456688148481
+// [   46.406830] In proc_init(), Jiffies is: 4294903835 and HZ is: 250
+// [   46.412534] The gcd of 3,300 and 24 is: 12
+// [   46.412536] In proc_exit(), jiffies is: 4294903836
+// [   46.412538] /proc/hello removed
+// [   46.423701] /proc/jiffies created
+// [   46.430437] /proc/jiffies removed
+// [   46.451145] /proc/seconds created
+// [   46.456973] /proc/seconds removed
+
+// ...end of script

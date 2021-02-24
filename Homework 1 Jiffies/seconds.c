@@ -12,7 +12,7 @@
 #define PROC_NAME "seconds"
 #define MESSAGE "seconds is\n"
 
-static long intitialvalue = 0;
+static long initialvalue = 0;
 /**
  * Function prototypes
  */
@@ -45,7 +45,7 @@ ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t 
         }
 
         completed = 1;
-        rv = sprintf(buffer, "seconds is %lu\n" ,(jiffies-initialvalue)/HZ);
+        rv = sprintf(buffer, "seconds is %lu\n" , (jiffies-initialvalue)/ HZ);
 
         // copies the contents of buffer to userspace usr_buf
         copy_to_user(usr_buf, buffer, rv);
@@ -61,3 +61,20 @@ module_exit( proc_exit );
 MODULE_LICENSE("GPL");
 MODULE_DESCRIPTION("seconds Module");
 MODULE_AUTHOR("SGG");
+
+//output of seconds hello/jiffies/seconds combined
+// jiffies is 4294903840
+// seconds is 17179615
+// [   46.406149] hello: module verification failed: signature and/or required key missing - tainting kernel
+// [   46.406827] /proc/hello created
+// [   46.406828] GOLDEN_RATIO_PRIME is: 11400862456688148481
+// [   46.406830] In proc_init(), Jiffies is: 4294903835 and HZ is: 250
+// [   46.412534] The gcd of 3,300 and 24 is: 12
+// [   46.412536] In proc_exit(), jiffies is: 4294903836
+// [   46.412538] /proc/hello removed
+// [   46.423701] /proc/jiffies created
+// [   46.430437] /proc/jiffies removed
+// [   46.451145] /proc/seconds created
+// [   46.456973] /proc/seconds removed
+
+// ...end of script 
